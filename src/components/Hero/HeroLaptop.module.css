@@ -1,0 +1,119 @@
+.scene {
+    width: 400px;
+    height: 250px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.laptop {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+    transform: rotateX(-10deg) rotateY(-20deg);
+}
+
+/* Screen Part (Top) */
+.screen {
+    width: 360px;
+    height: 220px;
+    background: #1a1a24;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+    /* Can animate to open/close */
+    border: 4px solid #2b2b3b;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.display {
+    width: 100%;
+    height: 100%;
+    background: #0d0d12;
+    border-radius: 8px;
+    border: 2px solid #000;
+    overflow: hidden;
+    padding: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 10px;
+    color: #a0a0b0;
+}
+
+/* Keyboard Part (Bottom) */
+.keyboard {
+    width: 400px;
+    height: 12px;
+    background: #2b2b3b;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    transform-origin: top;
+    transform: rotateX(90deg) translateZ(110px) translateY(-220px);
+    /* This positioning is tricky in CSS 3D. 
+       Simplification: Just place it below visually for now 
+       or use proper 3D stacking */
+}
+
+/* Better 3D Structure Strategy */
+.laptop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.screen {
+    transform: translateZ(0);
+    /* Re-override previous specific logic for a simpler implementation if scene rotates */
+}
+
+/* Mock Code Styling */
+.codeHeader {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.keyword {
+    color: #c678dd;
+}
+
+.variable {
+    color: #e06c75;
+}
+
+.string {
+    color: #98c379;
+}
+
+.boolean {
+    color: #d19a66;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .scene {
+        width: 300px;
+        height: 180px;
+    }
+
+    .screen {
+        width: 280px;
+        height: 170px;
+        left: 10px;
+    }
+
+    .keyboard {
+        width: 300px;
+    }
+}
