@@ -87,7 +87,7 @@ const Hero = () => {
                         </div>
                         <div className={styles.statDivider}></div>
                         <div className={styles.stat}>
-                            <span className={styles.statNumber}>6+</span>
+                            <span className={styles.statNumber}>4+</span>
                             <span className={styles.statLabel}>Years Coding</span>
                         </div>
                     </div>
